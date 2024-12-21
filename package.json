@@ -13,6 +13,7 @@
     "url": "https://github.com/Lowpan-com/webvue.git"
   },
   "scripts": {
+    "patch": "pnpm version patch; git push --tags",
     "publish": "pnpm publish --access public",
     "test": "echo test",
     "dev": "vite",
