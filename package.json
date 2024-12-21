@@ -1,5 +1,5 @@
 {
-  "name": "lowpan",
+  "name": "lowpan-webvue",
   "type": "module",
   "version": "0.0.2",
   "packageManager": "pnpm@9.15.0",
@@ -12,10 +12,8 @@
     "type": "git",
     "url": "https://github.com/Lowpan-com/webvue.git"
   },
-  "publishConfig": {
-    "@Lowpan-com": "https://npm.pkg.github.com"
-  },
   "scripts": {
+    "publish": "pnpm publish --access public",
     "test": "echo test",
     "dev": "vite",
     "build": "vite build",
