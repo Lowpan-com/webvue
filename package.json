@@ -22,6 +22,8 @@
     "lint": "eslint . --fix"
   },
   "dependencies": {
+    "@mdi/font": "^7.4.47",
+    "roboto-fontface": "^0.10.0",
     "vue": "^3.4.31",
     "vuetify": "^3.6.14"
   },
