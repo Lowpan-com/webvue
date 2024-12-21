@@ -10,8 +10,6 @@ jobs:
     #uses: ./.github/workflows/test.yml
 
   release:
-    # prevents this action from running on forks
-    if: github.repository == 'vuejs/core'
     # needs: [test]
     runs-on: ubuntu-latest
     permissions:
