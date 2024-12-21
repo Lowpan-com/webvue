@@ -6,3 +6,4 @@ dist-ssr
 logs
 .vscode
 tests_output
+*.tgz
