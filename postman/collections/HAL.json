@@ -29,7 +29,7 @@
 			"response": []
 		},
 		{
-			"name": "On",
+			"name": "OnOff",
 			"id": "c49df49d-269e-492a-9197-ff7b93cc7e42",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -37,6 +37,21 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "position",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "power",
+							"value": "0",
+							"type": "text"
+						}
+					]
+				},
 				"url": {
 					"raw": "lowpan.local/HALOn",
 					"host": [
@@ -51,22 +66,121 @@
 			"response": []
 		},
 		{
-			"name": "Off",
-			"id": "0d25a48a-44c1-49db-8d41-82a5dafab689",
+			"name": "Level",
+			"id": "ebaa472b-165a-454c-b18e-703fd43bea3a",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "position",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "level",
+							"value": "127",
+							"type": "text"
+						}
+					]
+				},
 				"url": {
-					"raw": "lowpan.local/HALOff",
+					"raw": "lowpan.local/HALLevel",
 					"host": [
 						"lowpan",
 						"local"
 					],
 					"path": [
-						"HALOff"
+						"HALLevel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ColorTemp",
+			"id": "3bb90560-f692-4f7d-8662-2d8f408f3ead",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "position",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "color-temp",
+							"value": "127",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "lowpan.local/HALColorTemp",
+					"host": [
+						"lowpan",
+						"local"
+					],
+					"path": [
+						"HALColorTemp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Color",
+			"id": "cc927b72-0751-46b0-894c-86b108b785e1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "position",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "red",
+							"value": "255",
+							"type": "text"
+						},
+						{
+							"key": "green",
+							"value": "127",
+							"type": "text"
+						},
+						{
+							"key": "blue",
+							"value": "0",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "lowpan.local/HALColor",
+					"host": [
+						"lowpan",
+						"local"
+					],
+					"path": [
+						"HALColor"
 					]
 				}
 			},
