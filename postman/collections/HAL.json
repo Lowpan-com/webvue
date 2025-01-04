@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "129670ce-31b2-4e99-943a-87e410873d7b",
+		"name": "HAL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "2542388-129670ce-31b2-4e99-943a-87e410873d7b"
+	},
+	"item": [
+		{
+			"name": "DeviceType",
+			"id": "ee7ae3a6-1fff-48a2-9e10-c039d19b3912",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "lowpan.local/HALDeviceType",
+					"host": [
+						"lowpan",
+						"local"
+					],
+					"path": [
+						"HALDeviceType"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OnOff",
+			"id": "c49df49d-269e-492a-9197-ff7b93cc7e42",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "position",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "power",
+							"value": "0",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "lowpan.local/HALOn",
+					"host": [
+						"lowpan",
+						"local"
+					],
+					"path": [
+						"HALOn"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Level",
+			"id": "ebaa472b-165a-454c-b18e-703fd43bea3a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "position",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "level",
+							"value": "127",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "lowpan.local/HALLevel",
+					"host": [
+						"lowpan",
+						"local"
+					],
+					"path": [
+						"HALLevel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ColorTemp",
+			"id": "3bb90560-f692-4f7d-8662-2d8f408f3ead",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "position",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "color-temp",
+							"value": "127",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "lowpan.local/HALColorTemp",
+					"host": [
+						"lowpan",
+						"local"
+					],
+					"path": [
+						"HALColorTemp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Color",
+			"id": "cc927b72-0751-46b0-894c-86b108b785e1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "position",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "red",
+							"value": "255",
+							"type": "text"
+						},
+						{
+							"key": "green",
+							"value": "127",
+							"type": "text"
+						},
+						{
+							"key": "blue",
+							"value": "0",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "lowpan.local/HALColor",
+					"host": [
+						"lowpan",
+						"local"
+					],
+					"path": [
+						"HALColor"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
