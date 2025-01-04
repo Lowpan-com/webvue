@@ -1,6 +1,9 @@
 <template>
-  Waiting for devices to load
+  <div>
+    <h1>Events</h1>
+  </div>
 </template>
 
 <script setup>
+  //
 </script>
