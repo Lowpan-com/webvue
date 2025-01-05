@@ -3,7 +3,7 @@
     <div v-if="deviceAttributes">
       <p>Type: {{ deviceAttributes.deviceType }}</p>
       <Status></Status>
-      <OLC></OLC>
+      <OLC :id="device" :position="0"></OLC>
       <Mode></Mode>
       <div v-if="deviceAttributes.deviceType === 'Keypad'">
         <KpLED></KpLED>
@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-import { ref, watch, onMounted, onUnmounted } from 'vue';
+import { ref, watch, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { useAppStore } from '../../stores/app';
 import OLC from '@/components/OLC.vue';
@@ -37,30 +37,12 @@ watch(() => route.params.device, (newDevice) => {
 
 onMounted(() => {
   fetchAttributes(device.value);
-  intervalId = setInterval(() => {
-    store.fetchLog(device.value);
-  }, 4000)
 });
 
 async function fetchAttributes(deviceId) {
   await appStore.fetchDeviceType(deviceId);
   deviceAttributes.value = appStore.getDeviceAttributes(deviceId);
-  store.fetchLog(device.value);
 }
 
-const store = useAppStore();
 
-let intervalId
-onMounted(() => {
-  store.fetchDevices();
-  intervalId = setInterval(() => {
-    store.fetchDevices();
-  }, 60000)
-})
-
-onUnmounted(() => clearInterval(intervalId))
-
-const devices = computed(() => {
-  return store.devices;
-});
 </script>

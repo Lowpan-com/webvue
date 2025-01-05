@@ -9,7 +9,6 @@ export const useAppStore = defineStore('app', {
   }),
   getters: {
     getDevices: (state) => state.devices,
-    getDeviceById: (state) => (id) => state.devices.find(device => device.id === id),
     getDeviceAttributes: (state) => (id) => state.deviceAttributes[id] || {},
   },
   actions: {
@@ -24,6 +23,40 @@ export const useAppStore = defineStore('app', {
       catch (error) {
         alert(error)
         console.log(error)
+      }
+    },
+    async writeOnOff(id, position, power) {
+      console.log(`writeOnOff for ${id} at position ${position} with value ${power}`)
+      axios.post(`http://${id}.local/HALOnOff`, {
+        position,
+        power
+      }, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(function (response) {
+        this.deviceAttributes[id].power = power
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    },
+    async fetchLog(id) {
+      console.log(`fetchLog for ${id}`)
+      if (!this.deviceAttributes[id] || !this.deviceAttributes[id].deviceType) {
+        try {
+          const response = await axios.get(`http://${id}.local/log`, { timeout: 10000 })
+          if (!this.deviceAttributes[id]) {
+            this.deviceAttributes[id] = {}
+          }
+          this.deviceAttributes[id].log += response.data
+        }
+        catch (error) {
+          alert(error)
+          console.log(error)
+        }
       }
     },
     async fetchDeviceType(id) {
