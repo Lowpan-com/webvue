@@ -6,24 +6,40 @@
   </v-app>
 </template>
 
-<script setup>
-import { ref, onMounted, onUnmounted, computed } from "vue";
-import { useAppStore } from "./stores/app";
+<script lang="ts">
+import { defineComponent, ref, onMounted, onUnmounted, computed } from 'vue'
+import { useAppStore } from './stores/app'
 
-const store = useAppStore();
+export default defineComponent({
+  name: 'LowpanApp',
+  
+  setup() {
+    const store = useAppStore()
+    const devices = computed(() => store.devices)
+    let intervalId: NodeJS.Timeout
 
-let intervalId
-onMounted(() => {
-  store.fetchDevices();
-  //intervalId = setInterval(() => {
-    //store.fetchDevices();
-  //}, 60000)
+    onMounted(() => {
+      store.fetchDevices()
+      intervalId = setInterval(() => {
+        store.fetchDevices()
+      }, 60000)
+    })
+
+    onUnmounted(() => {
+      if (intervalId) {
+        clearInterval(intervalId)
+      }
+    })
+
+    return {
+      devices
+    }
+  }
 })
-
-onUnmounted(() => clearInterval(intervalId))
-
-const devices = computed(() => {
-  return store.devices;
-});
-
 </script>
+
+<style scoped>
+.v-app {
+  height: 100%;
+}
+</style>
