@@ -15,9 +15,9 @@ const store = useAppStore();
 let intervalId
 onMounted(() => {
   store.fetchDevices();
-  intervalId = setInterval(() => {
-    store.fetchDevices();
-  }, 60000)
+  //intervalId = setInterval(() => {
+    //store.fetchDevices();
+  //}, 60000)
 })
 
 onUnmounted(() => clearInterval(intervalId))

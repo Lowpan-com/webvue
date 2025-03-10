@@ -1,5 +1,5 @@
 <template>
-  <v-btn-toggle v-model="key" color="deep-orange-accent-3" rounded="0" group>
+  <v-btn-toggle v-model="selectedKey" color="deep-orange-accent-3" rounded="0" group>
     <v-btn value="1">
       1
     </v-btn>
@@ -35,20 +35,19 @@
   </v-btn-toggle>
 </template>
 
-<script>
-export default {
-    data() {
-        return {
-            key: 0,
-            1: "1",
-            2: "2",
-            3: "3",
-            4: "4",
-            5: "5",
-            6: "6",
-            7: "7",
-            8: "8",
-        };
-    },
-};
+<script setup>
+import { ref, watch } from 'vue'
+import { useAppStore } from '@/stores/app'
+
+const props = defineProps(['id'])
+const appStore = useAppStore()
+
+const selectedKey = ref(0)
+
+watch(selectedKey, (newKey) => {
+  if (!appStore.deviceAttributes[props.id]) {
+    appStore.deviceAttributes[props.id] = {}
+  }
+  appStore.deviceAttributes[props.id].kpled = parseInt(newKey)
+})
 </script>
