@@ -14,9 +14,7 @@
   },
   "scripts": {
     "prepare": "pnpm run build",
-    "patch": "pnpm version patch && git push && git push --tags",
-    "release": "pnpm run build && pnpm publish --access public --no-git-checks",
-    "test": "echo test",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
@@ -38,6 +36,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.4.0",
     "eslint-plugin-vue": "^9.30.0",
+    "gh-pages": "^6.3.0",
     "pinia": "^2.1.7",
     "sass": "1.77.8",
     "sass-embedded": "^1.77.8",
